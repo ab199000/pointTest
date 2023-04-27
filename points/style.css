@@ -1,0 +1,33 @@
+button{
+    border-radius: 90px;
+    border: 0px;
+    margin: 5px;
+}
+
+.field{
+    
+}
+
+button{
+    width: 20px;
+    height: 20px;
+}
+
+.firstPlayer{
+    background: rgb(255, 0, 0);
+}
+
+.secondPlayer{
+    background: blue;
+}
+
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
+}
+
+.green{
+    background-color: green;
+}
