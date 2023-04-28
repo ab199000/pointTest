@@ -77,9 +77,13 @@ body.addEventListener("mouseout", (event) => {
 
 
 function putPoint(point) {
-	// if (point.classList.value != "") {
-	// 	return;
-	// }
+  const massClassPoint = point.classList.value.split(' ')
+  for(let i = 0; i < massClassPoint.length; i ++){
+    if(massClassPoint[i] == "secondPlayer" || massClassPoint[i] == "firstPlayer"){
+      return
+    }
+  }
+
 	if (motion) {
 		point.classList.add("secondPlayer");
 		field[coordinatesPoint(point).str][coordinatesPoint(point).col].player =
@@ -89,6 +93,7 @@ function putPoint(point) {
 			coordinatesPoint(point).col,
 			motion
 		);
+    // colorForPlayer()
 		motion = 0;
 		return;
 	}
@@ -96,7 +101,9 @@ function putPoint(point) {
 	field[coordinatesPoint(point).str][coordinatesPoint(point).col].player =
 		motion;
 	checkPoints(coordinatesPoint(point).str, coordinatesPoint(point).col, motion);
-	motion = 1;
+
+      motion = 1;
+
 }
 
 function coordinatesPoint(point) {
@@ -284,10 +291,15 @@ function checkRing(massPaints) {
 	if(massPaints.length >= 4){
 		let firstComparisonPoint = false
 		let secondComparisonPoint = false
+
 		for(let i = 0; i < massPaints.length; i++){
 
 			if(i == massPaints.length - 3 || i == massPaints.length - 2){
 				for(let j = 0; j < checks.length; j++){
+          if(massPaints[massPaints.length - 3].str + checks[j].str == massPaints[massPaints.length - 2].str &&
+            massPaints[massPaints.length - 3].col + checks[j].col == massPaints[massPaints.length - 2].col){
+              return
+          }
 					if(massPaints[i].str + checks[j].str == massPaints[massPaints.length-1].str &&
 						massPaints[i].col + checks[j].col == massPaints[massPaints.length-1].col){
 						if(i == massPaints.length - 3){
@@ -304,6 +316,7 @@ function checkRing(massPaints) {
 				const button = document.getElementById(`${massPaints[i].str}n${massPaints[i].col}`)
 				button.classList.add("green")
 			}
+      searchForSurroundedPoints(massPaints)
 		}
 	}
 }
@@ -314,6 +327,12 @@ function colorForPlayer(){
   if(motion){
     teg.style.color = "blue"
   } else {teg.style.color = "red"}
+  console.log(motion)
 }
 
+
 colorForPlayer()
+
+function searchForSurroundedPoints(){
+  
+}

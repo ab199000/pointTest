@@ -1,11 +1,30 @@
+body{
+  display: block;
+  margin: 0px;
+  padding: 0px;
+}
+
+.player{
+  width: max-content;
+  margin: 0px;
+  padding: 0px;
+
+}
+
 button{
     border-radius: 90px;
     border: 0px;
     margin: 5px;
+    background-color: rgb(53, 53, 53);
 }
 
 .field{
-    
+    width: max-content;
+    height: max-content;
+    margin: auto;
+    padding: 20px;
+    background-color: black;
+
 }
 
 button{
