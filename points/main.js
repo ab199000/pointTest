@@ -2,6 +2,10 @@ const body = document.querySelector(".field");
 
 let motion = 0;
 
+let scoreFirst = 0
+
+let scoreSecond = 0
+
 let checks = [
 	{ str: -1, col: -1 },
 	{ str: -1, col: 0 },
@@ -316,7 +320,7 @@ function checkRing(massPaints) {
 				const button = document.getElementById(`${massPaints[i].str}n${massPaints[i].col}`)
 				button.classList.add("green")
 			}
-      searchForSurroundedPoints(massPaints)
+                  searchForSurroundedPoints(massPaints)
 		}
 	}
 }
@@ -333,6 +337,30 @@ function colorForPlayer(){
 
 colorForPlayer()
 
-function searchForSurroundedPoints(){
-  
+function searchForSurroundedPoints(massPaints){
+      for(let i = 0; i < field.length;i++){
+            //ищем строку
+            for(let j  = 0; j < massPaints.length; j++){
+                  if (i != massPaints[j].str) {
+                        continue
+                  }
+                  //проверяем точки в строке
+                  for(let h = 0; h < field[i].length;h++){
+                        if (h != massPaints[j].col) {
+                              continue
+				}
+                        console.log(massPaints[j].str, massPaints[j].col);
+                  }
+            }
+
+      }
 }
+
+function score(firstS, secondS){
+      const scoreFirst = document.querySelector(".scoreFirst");
+      const scoreSecond = document.querySelector(".scoreSecond");
+
+      scoreFirst.textContent = firstS;
+      scoreSecond.textContent = secondS;
+}
+score(scoreFirst, scoreSecond);
