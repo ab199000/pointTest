@@ -1,0 +1,73 @@
+body {
+  display: block;
+  margin: 0px;
+  padding: 0px;
+
+  font-family: "Bruno Ace SC", cursive;
+}
+
+.player {
+  width: max-content;
+  margin: 0px;
+  padding: 0px;
+}
+
+.button {
+  width: 20px;
+  height: 20px;
+  border-radius: 90px;
+  border: 0px;
+  margin: 5px;
+  background-color: rgb(53, 53, 53);
+}
+
+.button:not(.filled):hover {
+  background-color: var(--player-color);
+}
+
+.addRoom,
+.accept {
+  width: 100px;
+  height: 40px;
+  background-color: rgb(255, 255, 255);
+}
+
+.field {
+  width: max-content;
+  height: max-content;
+  margin: auto;
+  padding: 20px;
+  background-color: black;
+}
+
+/* Что бы понять, занята ли точки  */
+.filled {
+}
+
+.firstPlayer {
+  background: rgb(255, 0, 0);
+}
+
+.secondPlayer {
+  background: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.green {
+  background-color: green;
+}
+
+.widgets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 30px;
+  gap: 20px;
+}
